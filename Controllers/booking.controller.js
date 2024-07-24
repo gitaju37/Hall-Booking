@@ -90,7 +90,7 @@ export const getBookedRooms = ( req, res ) => {
             };
         } );
 
-        res.status( 200 ).json( bookedRooms )
+        res.status( 200 ).json( { messege: "Booking Details send Succesfully", data: bookedRooms } )
     } catch ( error ) {
         res.status( 400 ).send( "internal server error" )
 
