@@ -42,20 +42,20 @@ let bookings = [
     }
 ]
 
-let Customers = [
-    {
-        Customer_id: 11,
-        Customer_name: "Ajith",
-        Customer_email: "ajith@gmail.com",
-        Customer_phone: "9876543210"
-    },
-    {
-        Customer_id: 12,
-        Customer_name: "Marshal",
-        Customer_email: "marshal@gmail.com",
-        Customer_phone: "9876543210"
-    }
-]
+// let Customers = [
+//     {
+//         Customer_id: 11,
+//         Customer_name: "Ajith",
+//         Customer_email: "ajith@gmail.com",
+//         Customer_phone: "9876543210"
+//     },
+//     {
+//         Customer_id: 12,
+//         Customer_name: "Marshal",
+//         Customer_email: "marshal@gmail.com",
+//         Customer_phone: "9876543210"
+//     }
+// ]
 
 export const bookRoom = ( req, res ) => {
 
