@@ -42,20 +42,6 @@ let bookings = [
     }
 ]
 
-// let Customers = [
-//     {
-//         Customer_id: 11,
-//         Customer_name: "Ajith",
-//         Customer_email: "ajith@gmail.com",
-//         Customer_phone: "9876543210"
-//     },
-//     {
-//         Customer_id: 12,
-//         Customer_name: "Marshal",
-//         Customer_email: "marshal@gmail.com",
-//         Customer_phone: "9876543210"
-//     }
-// ]
 
 export const bookRoom = ( req, res ) => {
 
@@ -132,10 +118,10 @@ export const getAllCustomerData = ( req, res ) => {
 
 export const getCustomerBookingCount = (req, res) => {
     try {
-        const { CustomerId } = req.params.id
-        const customerBookings = bookings.filter( booking => booking.Customer_id === parseInt( CustomerId ) );
+        const { id } = req.params;
+        const customerBookings = bookings.filter( (booking) => booking.Customer_id === parseInt(id) );
         console.log( customerBookings )
-        const customerDetails = customerBookings.map( booking => ( {
+        const customerDetails = customerBookings.map( (booking) => ( {
             Customer_Name: booking.Customer_name,
             Date: booking.Date,
             Start_time: booking.Start_time,
@@ -143,15 +129,15 @@ export const getCustomerBookingCount = (req, res) => {
             Room_id: booking.room_id,
             Room_Name: booking.room_name
         } ) );
+        console.log( customerDetails )
 
         const bookingCount = customerBookings.length;
+        console.log( bookingCount )
 
-        res.status( 200 ).json( {
-            Customer_id: CustomerId,
-            Booking_count: bookingCount,
-            Customer_Details: customerDetails
-        } );
+        res.status(200).json({ Customer_id: id, Booking_count: bookingCount, Customer_Details: customerDetails });
+
     } catch ( error ) {
         res.status( 400 ).send( "Internal server error" );
     }
 };
+
